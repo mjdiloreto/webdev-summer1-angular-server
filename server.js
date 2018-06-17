@@ -1,8 +1,7 @@
 var express = require('express')
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.connect('mongodb://localhost/webdev-summer1-2018-lectures');
-
+mongoose.connect('mongodb://localhost/webdev_angular');
 
 var app = express()
 
@@ -20,16 +19,12 @@ app.use(function(req, res, next) {
   next();
 });
 
-
-
-
 var session = require('express-session')
 app.use(session({
   resave: false,
   saveUninitialized: true,
   secret: 'any string'
 }));
-
 
 app.get('/', function (req, res) {
   res.send('Hello World')
@@ -61,7 +56,6 @@ function getSession(req, res) {
   var value = req.session[name];
   res.send(value);
 }
-
 
 var userService = require('./services/user.service.server');
 userService(app);
