@@ -14,9 +14,17 @@ module.exports = function (app) {
     userModel
       .findUserByCredentials(credentials)
       .then(function(user) {
-        req.session['currentUser'] = user;
-        res.json(user);
-      })
+        if (user !== null) {
+          if (user._id !== undefined) {
+            req.session['currentUser'] = user;
+            res.json(user);
+          } else {
+            res.send(false);
+          }
+        } else {
+          res.send(false);
+        }
+      });
   }
 
   function logout(req, res) {
