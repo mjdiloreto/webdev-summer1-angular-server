@@ -22,12 +22,17 @@ function updateUser(user) {
   return userModel.updateOne({_id: user._id}, user);
 }
 
+function findUserByUsername(username) {
+  return userModel.find({username: username});
+}
+
 var api = {
   createUser: createUser,
   findAllUsers: findAllUsers,
   findUserById: findUserById,
   findUserByCredentials: findUserByCredentials,
-  updateUser: updateUser
+  updateUser: updateUser,
+  findUserByUsername: findUserByUsername
 };
 
 module.exports = api;

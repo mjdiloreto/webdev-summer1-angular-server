@@ -55,9 +55,19 @@ module.exports = function (app) {
   }
 
   function findAllUsers(req, res) {
-    userModel.findAllUsers()
-      .then(function (users) {
-        res.send(users);
-      })
+    var username = req.query['username'];
+
+    if (username) {
+      userModel.findUserByUsername(username)
+        .then(function (users) {
+          res.json(users);
+        });
+    }
+    else {
+      userModel.findAllUsers()
+        .then(function (users) {
+          res.json(users);
+        });
+    }
   }
 }
