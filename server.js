@@ -1,12 +1,12 @@
 var express = require('express')
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+mongoose.connect('mongodb://heroku_2d4vtt2h:7scubj174dtj7abf6qire7p8rt@ds263500.mlab.com:63500/heroku_2d4vtt2h');
 
 // For use with local instance
 // mongoose.connect('mongodb://localhost/webdev_angular');
 
-var app = express()
+var app = express();
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
