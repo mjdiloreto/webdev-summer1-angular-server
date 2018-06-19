@@ -65,4 +65,5 @@ userService(app);
 
 require('./services/section.service.server')(app);
 
-app.listen(4000);
+var port = process.env.PORT || 4000;
+app.listen(port);
