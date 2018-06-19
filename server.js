@@ -1,10 +1,10 @@
 var express = require('express')
 var bodyParser = require('body-parser');
 const mongoose = require('mongoose');
-mongoose.connect(process.env.MONGODB_URI);
+// mongoose.connect(process.env.MONGODB_URI);
 
 // For use with local instance
-// mongoose.connect('mongodb://localhost/webdev_angular');
+mongoose.connect('mongodb://localhost/webdev_angular');
 
 var app = express()
 
